@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM node:latest
 
 MAINTAINER Jerry "jerry@xqopen.com"
 
