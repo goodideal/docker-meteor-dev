@@ -4,7 +4,7 @@ MAINTAINER Jerry "jerry@xqopen.com"
 
 #RUN update-locale LANG=C.UTF-8 LC_MESSAGES=POSIX
 
-RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y curl git
+#RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y curl git
 
 RUN curl https://install.meteor.com/ | sh
 
