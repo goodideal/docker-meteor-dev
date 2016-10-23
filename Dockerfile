@@ -8,7 +8,7 @@ MAINTAINER Jerry "jerry@xqopen.com"
 RUN npm install -qg pm2-meteor
 WORKDIR /opt/application
 
-RUN curl https://install.meteor.com/?release=1.4.1.1 | sh
+RUN curl https://install.meteor.com/?release=1.4.1.2 | sh
 
 EXPOSE 3000
 
