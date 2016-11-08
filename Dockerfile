@@ -7,7 +7,7 @@ MAINTAINER Jerry "jerry@xqopen.com"
 #RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y curl git
 RUN npm install -qg pm2-meteor
 
-RUN curl https://install.meteor.com/ | sh
+RUN curl https://install.meteor.com/?release=1.4.2 | sh
 
 WORKDIR /opt/application
 
