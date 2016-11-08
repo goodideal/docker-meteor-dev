@@ -13,4 +13,7 @@ WORKDIR /opt/application
 
 EXPOSE 3000
 
+RUN useradd noroot -u 1000 -s /bin/bash
+USER noroot
+
 CMD [ "meteor" ]
