@@ -5,11 +5,9 @@ MAINTAINER Jerry "jerry@xqopen.com"
 #RUN update-locale LANG=C.UTF-8 LC_MESSAGES=POSIX
 
 #RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y curl git
-RUN npm install -qg pm2-meteor
+RUN npm install -qg pm2-meteor; npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 RUN curl https://install.meteor.com/?release=1.4.2 | sh
-
-RUN touch ~/.bashrc; echo "alias meteor='meteor --unsafe-perm'" >> ~/.bashrc
 
 WORKDIR /opt/application
 
