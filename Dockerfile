@@ -7,7 +7,7 @@ MAINTAINER Jerry "jerry@xqopen.com"
 
 RUN npm install -qg cnpm --registry=https://registry.npm.taobao.org
 
-RUN curl https://install.meteor.com/?release=1.4.3.1 | sh
+RUN curl https://install.meteor.com/?release=1.4.3.2 | sh
 
 WORKDIR /opt/application
 
