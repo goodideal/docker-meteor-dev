@@ -41,6 +41,4 @@ RUN curl https://install.meteor.com/?release=${METEOR_REL} | sh
 # run Meteor from the app directory
 WORKDIR ${APP_ROOT}
 
-VOLUME /${APP_USER}/.meteor
-
-CMD ["metoer"]
+CMD ["meteor"]
