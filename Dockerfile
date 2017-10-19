@@ -23,8 +23,12 @@ VOLUME $APP_ROOT
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl python build-essential locales ${APP_PACKAGES}
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
 RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean
+
+RUN npm install pm2-meteor
 
 # set the locale (required by Meteor)
 RUN locale-gen ${APP_LOCALE}.${APP_CHARSET} &&\
@@ -38,13 +42,14 @@ RUN curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-${M
     mkdir -p /data/db
 
 # create a non-root user that can write to /usr/local (required by Meteor)
-RUN useradd -mUd ${APP_USER_DIR} ${APP_USER}
-RUN chown -Rh ${APP_USER} /usr/local /data /opt/application
+ENV METEOR_ALLOW_SUPERUSER=1
+#RUN useradd -mUd ${APP_USER_DIR} ${APP_USER}
+#RUN chown -Rh ${APP_USER} /usr/local /data /opt/application
 
 # add builds for gitlab ci
-RUN mkdir /builds && chown -Rh ${APP_USER} /builds
+#RUN mkdir /builds && chown -Rh ${APP_USER} /builds
 
-USER ${APP_USER}
+#USER ${APP_USER}
 
 # install Meteor
 RUN curl https://install.meteor.com/?release=${METEOR_REL} | sh
@@ -60,4 +65,5 @@ ADD docker-entry.sh /
 ENTRYPOINT ["/docker-entry.sh"]
 
 CMD ["meteor"]
+
 
