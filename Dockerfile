@@ -22,7 +22,7 @@ VOLUME $APP_ROOT
 # add packages for building NPM modules (required by Meteor)
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl python build-essential locales ${APP_PACKAGES}
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl python git build-essential locales ${APP_PACKAGES}
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
 RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove
