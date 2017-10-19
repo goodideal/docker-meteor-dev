@@ -40,6 +40,10 @@ RUN curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-${M
 # create a non-root user that can write to /usr/local (required by Meteor)
 RUN useradd -mUd ${APP_USER_DIR} ${APP_USER}
 RUN chown -Rh ${APP_USER} /usr/local /data /opt/application
+
+# add builds for gitlab ci
+RUN mkdir /builds && chown -Rh ${APP_USER} /builds
+
 USER ${APP_USER}
 
 # install Meteor
