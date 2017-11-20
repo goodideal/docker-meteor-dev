@@ -28,7 +28,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
 RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean
 
-RUN npm install pm2-meteor
+RUN npm install -g pm2-meteor
 
 # set the locale (required by Meteor)
 RUN locale-gen ${APP_LOCALE}.${APP_CHARSET} &&\
