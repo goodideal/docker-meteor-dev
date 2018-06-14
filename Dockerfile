@@ -8,8 +8,8 @@ ARG APP_LOCALE=en_US
 ARG APP_CHARSET=UTF-8
 ARG APP_USER=app
 ARG APP_USER_DIR=/home/${APP_USER}
-ARG METEOR_REL=1.6
-ARG MONGO_REL=3.4.9
+ARG METEOR_REL=1.7.0.3
+ARG MONGO_REL=3.6.4
 
 # run environment
 ENV APP_PORT=${APP_PORT:-3000}
@@ -23,7 +23,7 @@ VOLUME $APP_ROOT
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl python git build-essential locales ${APP_PACKAGES}
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
 RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean
