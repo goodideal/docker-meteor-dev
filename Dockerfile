@@ -8,8 +8,13 @@ ARG APP_LOCALE=en_US
 ARG APP_CHARSET=UTF-8
 ARG APP_USER=app
 ARG APP_USER_DIR=/home/${APP_USER}
+<<<<<<< HEAD
 ARG METEOR_REL=1.7.0.3
 ARG MONGO_REL=3.6.4
+=======
+ARG METEOR_REL=1.6.1
+ARG MONGO_REL=3.4.9
+>>>>>>> b4c5c8ddf8ddbbe00e5b21c2c481425bb7b371b5
 
 # run environment
 ENV APP_PORT=${APP_PORT:-3000}
@@ -28,7 +33,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
 RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean
 
-RUN npm install pm2-meteor
+RUN npm install -g pm2-meteor
 
 # set the locale (required by Meteor)
 RUN locale-gen ${APP_LOCALE}.${APP_CHARSET} &&\
