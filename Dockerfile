@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER Jerry "jerry@xqopen.com"
+MAINTAINER Jerry "jerry@wjz.im"
 
 # build arguments
 ARG APP_PACKAGES
@@ -8,8 +8,8 @@ ARG APP_LOCALE=en_US
 ARG APP_CHARSET=UTF-8
 ARG APP_USER=app
 ARG APP_USER_DIR=/home/${APP_USER}
-ARG METEOR_REL=1.6.1.3
-ARG MONGO_REL=3.6.5
+ARG METEOR_REL=1.8.0.2
+ARG MONGO_REL=4.0.6
 
 # run environment
 ENV APP_PORT=${APP_PORT:-3000}
